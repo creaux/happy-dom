@@ -538,7 +538,8 @@ export default class BrowserWindow extends EventTarget implements IBrowserWindow
 				key[0] !== '_' &&
 				key[0] === key[0].toLowerCase() &&
 				typeof this[key] === 'function' &&
-				!this[key].toString().startsWith('class ')
+				!this[key].toString().startsWith('class ') &&
+				key !== 'postMessage'
 			) {
 				this[key] = this[key].bind(this);
 			}
